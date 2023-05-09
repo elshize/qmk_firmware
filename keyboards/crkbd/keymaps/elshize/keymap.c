@@ -19,6 +19,27 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 
+enum combos {
+  WE_ESC,
+  XC_TAB,
+  IO_BSPC,
+  CD_ENT,
+  COMBO_LENGTH
+};
+uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this instead!
+
+const uint16_t PROGMEM we_combo[] = {KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM io_combo[] = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM cd_combo[] = {KC_COMM, KC_DOT, COMBO_END};
+
+combo_t key_combos[] = {
+  [WE_ESC] = COMBO(we_combo, KC_ESC),
+  [XC_TAB] = COMBO(xc_combo, KC_TAB),
+  [IO_BSPC] = COMBO(io_combo, KC_BSPC),
+  [CD_ENT] = COMBO(cd_combo, KC_ENT),
+};
+
 const uint16_t LALT_A = MT(MOD_LALT, KC_A);
 const uint16_t LCTL_S = MT(MOD_LCTL, KC_S);
 const uint16_t LSFT_D = MT(MOD_LSFT, KC_D);
@@ -51,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       OS_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, OS_RSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          OS_LSFT,  OSL(1),  KC_SPC,    LT3_ENT,  OSL(2), OS_RSFT
+                                          OS_LSFT,  OSL(1),  KC_SPC,    OS_RSFT,  OSL(2), OS_RSFT
                                       //`--------------------------'  `--------------------------'
 
   ),
