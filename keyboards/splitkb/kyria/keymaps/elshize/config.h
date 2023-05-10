@@ -38,3 +38,4 @@
 // Lets you roll mod-tap keys
 #define IGNORE_MOD_TAP_INTERRUPT
 #define ENCODER_RESOLUTION 2
+#define COMBO_TERM 50
