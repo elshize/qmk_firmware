@@ -38,4 +38,10 @@
 // Lets you roll mod-tap keys
 #define IGNORE_MOD_TAP_INTERRUPT
 #define ENCODER_RESOLUTION 2
+#define SPLIT_LAYER_STATE_ENABLE
+#define SPLIT_MODS_ENABLE
+
 #define COMBO_TERM 50
+#define EXTRA_SHORT_COMBOS
+#define COMBO_STRICT_TIMER
+#define COMBO_VARIABLE_LEN
